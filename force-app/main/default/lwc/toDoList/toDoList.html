@@ -3,38 +3,38 @@
         <lightning-button label="New" slot="actions" onclick={navNewPage}></lightning-button>
         <div class="slds-var-p-horizontal_small">
             <template if:true={toDos}>
-            <ul>
-                <template for:each={toDos} for:item="todo">
-                    <li key={todo.Id}>
-                        <lightning-tile class="slds-var-p-around_small slds-border_top slds-border_bottom">
-                            <lightning-layout>
-                                <lightning-layout-item padding="around-small" size="9">
-                                    <a onclick={navDetailPagetoDo} data-id={todo.Id}>
-                                        <h2>{todo.Name}</h2>
-                                    </a>
-                                    <p><b>Contact: </b><a onclick={navDetailPageContact}
-                                            data-id={todo.Contact__c}>{todo.Contact__r.Name}</a></p>
-                                    <p><b>Actions: </b> {todo.Actions__c}</p>
-                                    <p><b>Status: </b> {todo.Status__c}</p>
-                                </lightning-layout-item>
-                                <lightning-layout-item padding="around-small" size="3">
-                                    <lightning-button-group>
-                                        <lightning-button-icon title="Edit" icon-name="utility:edit"
-                                            alternative-text="Edit To Do record." onclick={navEditPage}
-                                            data-id={todo.Id}><label>Edit</label>
-                                        </lightning-button-icon>
-                                        <lightning-button-icon title="Delete" icon-name="utility:delete"
-                                            alternative-text="Delete To Do record." onclick={deleteToDo}
-                                            data-id={todo.Id}><label>Delete</label>
-                                        </lightning-button-icon>
-                                    </lightning-button-group>
-                                </lightning-layout-item>
-                            </lightning-layout>
-                        </lightning-tile>
-                    </li>
-                </template>
-            </ul>
-        </template>
+                <ul>
+                    <template for:each={toDos} for:item="todo">
+                        <li key={todo.Id}>
+                            <lightning-tile class="slds-var-p-around_small slds-border_top slds-border_bottom">
+                                <lightning-layout>
+                                    <lightning-layout-item padding="around-small" size="9">
+                                        <a onclick={navDetailPageToDo} data-id={todo.Id}>
+                                            {todo.Name}
+                                        </a>
+                                        <p><b>Contact: </b><a onclick={navDetailPageContact}
+                                                data-id={todo.Contact__c}>{todo.Contact__r.Name}</a></p>
+                                        <p><b>Actions: </b> {todo.Actions__c}</p>
+                                        <p><b>Status: </b> {todo.Status__c}</p>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item padding="around-small" size="3">
+                                        <lightning-button-group>
+                                            <lightning-button-icon title="Edit" icon-name="utility:edit"
+                                                alternative-text="Edit To Do record." onclick={navEditPage}
+                                                data-id={todo.Id}><label>Edit</label>
+                                            </lightning-button-icon>
+                                            <lightning-button-icon title="Delete" icon-name="utility:delete"
+                                                alternative-text="Delete To Do record." onclick={deleteToDo}
+                                                data-id={todo.Id}><label>Delete</label>
+                                            </lightning-button-icon>
+                                        </lightning-button-group>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </lightning-tile>
+                        </li>
+                    </template>
+                </ul>
+            </template>
         </div>
     </lightning-card>
 </template>

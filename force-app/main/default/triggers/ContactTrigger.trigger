@@ -20,7 +20,7 @@ trigger ContactTrigger on Contact (before insert, after insert, before update, a
                 req.setProcessDefinitionNameOrId('New_Contact_Approval_Process');
                 req.setSkipEntryCriteria(true);
                 
-                // Submit the approval request for the Account
+                // Submit the approval request for the Contact
                 Approval.ProcessResult result = Approval.process(req);
                 
                 // Verify the result
@@ -39,7 +39,7 @@ trigger ContactTrigger on Contact (before insert, after insert, before update, a
             Set<Id> acctIdSet = new Set<Id>();
             
             for (Contact c : Trigger.new) {
-                // Add parent Account Id to Account Id set for reference
+                // Add parent Account Id to set for reference
                 acctIdSet.add(c.AccountId);  
                 // Get the existing delta value, if none is found instantiate at 0
                 Integer countDelta = acctDeltaMap.get(c.AccountId) == null ? 0 : acctDeltaMap.get(c.AccountId);

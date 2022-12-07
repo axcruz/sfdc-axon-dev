@@ -40,6 +40,7 @@ export default class ToDoList extends NavigationMixin(LightningElement) {
 
     // Navigate to detail record page for To Do object.
     navDetailPageToDo(event) {
+        console.log(event.target.dataset.id);
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {
